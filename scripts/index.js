@@ -253,7 +253,7 @@ module.exports = {
 },{"./welcome-page.html":12}],12:[function(require,module,exports){
 module.exports = "<div class=\"welcome-page\">\n  <md-toolbar class=\"md-primary welcome-page__toolbar\">\n    <h1 class=\"md-toolbar-tools welcome-page__heading\" layout-align=\"center\">Welcome to Cobudget!</h1>\n  </md-toolbar>\n\n  <md-content layout-padding>\n    <form novalidate ng-submit=\"login(formData)\">\n      <div class=\"welcome-page__form-errors\">{{ formError }}</div>\n\n      <md-input-container>\n        <label>email</label>\n        <input name=\"email\" type=\"email\" ng-model=\"formData.email\">\n      </md-input-container>\n\n      <md-input-container>\n        <label>password</label>\n        <input name=\"password\" type=\"password\" ng-model=\"formData.password\">\n      </md-input-container>\n  \n      <input type=\"submit\" value=\"log in\">\n    </form>\n  </md-content>\n</div>";
 },{}],13:[function(require,module,exports){
-module.exports = {"apiPrefix":"http://localhost:3000/api/v1","apiEndpoint":"https://staging-cobudget-api.herokuapp.com","env":"staging"}
+module.exports = {"apiPrefix":"https://cobudget-beta-api.herokuapp.com/api/v1","env":"staging"}
 },{}],14:[function(require,module,exports){
 (function (global){
 
