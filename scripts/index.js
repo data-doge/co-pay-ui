@@ -45,7 +45,10 @@ global.cobudgetApp.run(["$rootScope", "Records", "$q", "$location", function($ro
   global.cobudgetApp.membershipsLoaded = membershipsLoadedDeferred.promise;
   authSuccess = function(event, user) {
     global.cobudgetApp.currentUserId = user.id;
-    return Records.memberships.fetchMyMemberships().then(function() {
+    return Records.memberships.fetchMyMemberships().then(function(data) {
+      if (!global.cobudgetApp.currentGroupId) {
+        global.cobudgetApp.currentGroupId = data.groups[0].id;
+      }
       return membershipsLoadedDeferred.resolve(true);
     });
   };
@@ -54,7 +57,6 @@ global.cobudgetApp.run(["$rootScope", "Records", "$q", "$location", function($ro
   });
   return $rootScope.$on('auth:login-success', function(event, user) {
     return authSuccess(event, user).then(function() {
-      global.cobudgetApp.currentGroupId = 1;
       return $location.path("/groups/" + global.cobudgetApp.currentGroupId);
     });
   });
