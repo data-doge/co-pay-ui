@@ -1,3 +1,3 @@
 module.exports = {
-  apiPrefix: "https://cobudget-beta-api.herokuapp.com/api/v1"
+  apiPrefix: "https://co-pay-ui.herokuapp.com"
 }
