@@ -22,6 +22,7 @@ module.exports =
       $scope.redirectToGroupPage(user) 
 
     $scope.$on 'auth:login-success', (event, user) ->
+      alert('it fuckin worked lol')
       $scope.redirectToGroupPage(user)
 
     $scope.$on 'auth:login-error', () ->

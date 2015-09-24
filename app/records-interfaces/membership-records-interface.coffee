@@ -1,7 +1,7 @@
 null 
 
 ### @ngInject ###
-global.cobudgetApp.factory 'MembershipRecordsInterface', (config, BaseRecordsInterface, MembershipModel) -> 
+global.copayApp.factory 'MembershipRecordsInterface', (config, BaseRecordsInterface, MembershipModel) -> 
   class MembershipRecordsInterface extends BaseRecordsInterface
     model: MembershipModel
     constructor: (recordStore) ->
