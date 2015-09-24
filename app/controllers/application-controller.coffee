@@ -1,3 +1,3 @@
 ### @ngInject ###
 
-global.cobudgetApp.controller 'ApplicationController', (Records) ->
+global.copayApp.controller 'ApplicationController', (Records) ->

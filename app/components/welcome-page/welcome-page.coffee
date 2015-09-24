@@ -9,20 +9,25 @@ module.exports =
         email: formData.email
         password: formData.password
 
-    $scope.redirectToGroupPage = (user) ->
-      ipCookie('currentUserId', user.id)
-      if ipCookie('initialRequestPath') == undefined || ipCookie('initialRequestPath') == '/'
-        Records.memberships.fetchMyMemberships().then (data) ->
-          ipCookie('currentGroupId', data.groups[0].id)
-          $location.path("/groups/#{ipCookie('currentGroupId')}")
-      else
-        $location.path(ipCookie('initialRequestPath'))
+    # $scope.redirectToGroupPage = (user) ->
+    #   ipCookie('currentUserId', user.id)
+    #   if ipCookie('initialRequestPath') == undefined || ipCookie('initialRequestPath') == '/'
+    #     Records.memberships.fetchMyMemberships().then (data) ->
+    #       ipCookie('currentGroupId', data.groups[0].id)
+    #       $location.path("/groups/#{ipCookie('currentGroupId')}")
+    #   else
+    #     $location.path(ipCookie('initialRequestPath'))
 
     $scope.$on 'auth:validation-success', (event, user) ->
-      $scope.redirectToGroupPage(user) 
+      alert('validation success')
+      # $scope.redirectToGroupPage(user) 
 
     $scope.$on 'auth:login-success', (event, user) ->
-      $scope.redirectToGroupPage(user)
+      alert('login success')
+      # $scope.redirectToGroupPage(user)
+
+    $scope.$on 'auth:login-error', (event, user) ->
+      alert('login error')
 
     $scope.$on 'auth:login-error', () ->
       $scope.formError = "Invalid Credentials"

@@ -1,15 +1,12 @@
 null
 
 ### @ngInject ###
-global.cobudgetApp.factory 'MembershipModel', (BaseModel) ->
+global.copayApp.factory 'MembershipModel', (BaseModel) ->
   class MembershipModel extends BaseModel
     @singular: 'membership'
     @plural: 'memberships'
-    @indices: ['groupId', 'memberId']
+    @indices: ['groupId', 'userId']
 
     relationships: ->
-      @belongsTo 'member', from: 'users'
+      @belongsTo 'user'
       @belongsTo 'group'
-
-    balance: ->
-      parseFloat(@totalAllocations) - parseFloat(@totalContributions)
