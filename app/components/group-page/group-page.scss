@@ -1,0 +1,105 @@
+// toolbar heading
+
+.group-page__toolbar {
+  position: relative;
+  background: linear-gradient(0deg, rgba(36,50,57,1), rgba(36,50,57,0.92));
+  color: white;
+  margin-bottom: 20px;
+}
+
+.group-page__menu-bar {
+  height: $large-height;
+  margin-bottom: 10px;
+}
+
+.group-page__menu-icon {
+  @include fontGrande;
+  fill: white;
+}
+
+.group-page__group-name {
+  @include fontLarge;
+  @include truncatedText;
+}
+
+// sidenav
+
+.group-page__sidenav {
+  width: 256px;
+  min-width: 256px;
+  position: fixed;
+}
+
+.group-page .md-sidenav-backdrop {
+  position: fixed;
+}
+
+.group-page__sidenav-toolbar {
+  background: $cobudget-happy-blue;
+  color: white;
+}
+
+.group-page__user-avatar-container {
+  padding-left: 15px;
+  padding-top: 15px;
+}
+
+.group-page__user-avatar {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: white;
+  color: black;
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.group-page__user-email {
+  @include fontMedium;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-weight: bold;
+}
+
+.group-page__sidenav-content {
+  padding-top: 20px;
+}
+
+.group-page__sidenav-option {
+  margin-bottom: 20px;
+  padding-left: 15px;
+}
+
+.group-page__sidenav-option-icon {
+  fill: $grey-on-white;
+}
+
+.group-page__sidenav-option-subheader {
+  margin-left: 30px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.group-page__sidenav-expanded-content {
+  
+}
+
+// create-bucket-fab
+
+.group-page__create-bucket-fab {
+  position: absolute;
+  right: 10px;
+  bottom: -30px;
+}
+
+.group-page__create-bucket-fab-icon {
+  fill: white;  
+}
+
+// content
+
+.group-page__content {
+  max-width: 640px;
+  margin: 0 auto;
+  padding-bottom: 10px;
+}
