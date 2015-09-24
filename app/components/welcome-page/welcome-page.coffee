@@ -12,7 +12,6 @@ module.exports =
     $scope.redirectToGroupPage = (user) ->
       ipCookie('currentUserId', user.id)
       Records.memberships.fetchMyMemberships().then (data) ->
-        console.log('data: ', data)
         ipCookie('currentGroupId', data.groups[0].id)
         $location.path("/groups/#{ipCookie('currentGroupId')}")
 

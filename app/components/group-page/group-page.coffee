@@ -12,6 +12,10 @@ module.exports =
       #   $scope.accessibleGroups = data.groups
       Records.groups.findOrFetchById(groupId).then (group) ->
         $scope.group = group
+        Records.purchases.fetchByGroupId(groupId).then (data) ->
         # $scope.currentMembership = group.membershipFor(currentUser)
+
+    $scope.selectTab = (tabNum) ->
+      $scope.tabSelected = tabNum
 
     return

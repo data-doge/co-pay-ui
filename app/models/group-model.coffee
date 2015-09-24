@@ -9,6 +9,8 @@ global.copayApp.factory 'GroupModel', (BaseModel) ->
 
     relationships: ->
       @hasMany 'memberships'
+      @hasMany 'purchases'
+
 
     # hasManyThrough doesn't yet exist quite yet
     members: ->

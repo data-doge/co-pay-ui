@@ -85,5 +85,23 @@
   </md-toolbar>
 
   <md-content class="group-page__content">
+    <div ng-if="tabSelected == 0">
+      <md-list>
+        <md-list-item ng-repeat="purchase in group.purchases()">
+          <md-divider></md-divider>
+
+          <div layout="row" layout-align="start center" class="group-page__purchase-container">
+            <div class="group-page__purchaser-avatar" layout="column" layout-align="center center">
+              <div>{{ purchase.user().name[0] | uppercase }}</div>
+            </div>
+
+            <div layout="column" layout-align="center start" flex>
+              <div class="group-page__purchase-amount">{{ purchase.amount | currency }}</div>
+              <div class="group-page__purchase-description">{{ purchase.description }}</div>
+            </div>
+          </div>
+        </md-list-item>
+      </md-list>
+    </div>
   </md-content>
 </div>

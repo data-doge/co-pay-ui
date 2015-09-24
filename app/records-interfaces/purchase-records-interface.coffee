@@ -7,3 +7,8 @@ global.copayApp.factory 'PurchaseRecordsInterface', (config, BaseRecordsInterfac
     constructor: (recordStore) ->
       @baseConstructor recordStore
       @remote.apiPrefix = config.apiPrefix 
+
+    fetchByGroupId: (groupId) ->
+      @fetch
+        params:
+          group_id: groupId
