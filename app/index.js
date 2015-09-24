@@ -21,7 +21,7 @@ if (process.env.NODE_ENV != 'production') {
 }
 
 /* @ngInject */
-global.cobudgetApp = angular.module('cobudget', [
+global.copayApp = angular.module('copay', [
   'ui.router',
   'ng-token-auth',
   'ngMaterial',

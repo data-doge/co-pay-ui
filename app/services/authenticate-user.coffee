@@ -1,7 +1,7 @@
 null
 
 ### @ngInject ###
-global.cobudgetApp.factory 'AuthenticateUser', (Records, ipCookie, Toast, $location, $stateParams, $q, $auth, CurrentUser) ->
+global.copayApp.factory 'AuthenticateUser', (Records, ipCookie, Toast, $location, $stateParams, $q, $auth, CurrentUser) ->
   () ->
     deferred = $q.defer()
 

@@ -1,7 +1,7 @@
 null
 
 ### @ngInject ###
-global.cobudgetApp.factory 'Toast', ($mdToast, $location) ->
+global.copayApp.factory 'Toast', ($mdToast, $location) ->
   new class Toast
 
     show: (msg) ->

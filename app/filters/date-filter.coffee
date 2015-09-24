@@ -1,23 +1,23 @@
-global.cobudgetApp.filter 'timeFromNowInWords', ->
+global.copayApp.filter 'timeFromNowInWords', ->
   (date) ->
     moment(date).fromNow(true)
 
-global.cobudgetApp.filter 'timeFromNowAmount', ->
+global.copayApp.filter 'timeFromNowAmount', ->
   (date) ->
     moment(date).fromNow(true).split(' ')[0]
 
-global.cobudgetApp.filter 'timeFromNowUnits', ->
+global.copayApp.filter 'timeFromNowUnits', ->
   (date) ->
     moment(date).fromNow(true).split(' ')[1]
 
-global.cobudgetApp.filter 'timeToNowAmount', ->
+global.copayApp.filter 'timeToNowAmount', ->
   (date) ->
     moment(date).toNow(true).split(' ')[0]
 
-global.cobudgetApp.filter 'timeToNowUnits', ->
+global.copayApp.filter 'timeToNowUnits', ->
   (date) ->
     moment(date).toNow(true).split(' ')[1]
 
-global.cobudgetApp.filter 'exactDateWithTime', ->
+global.copayApp.filter 'exactDateWithTime', ->
   (date) ->
     moment(date).format('dddd MMMM Do [at] h:mm a')

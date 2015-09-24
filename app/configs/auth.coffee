@@ -1,5 +1,5 @@
 ### @ngInject ###
 
-global.cobudgetApp.config ($authProvider, config) ->
+global.copayApp.config ($authProvider, config) ->
   $authProvider.configure
     apiUrl: config.apiPrefix
