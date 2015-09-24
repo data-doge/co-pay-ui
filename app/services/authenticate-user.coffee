@@ -14,15 +14,6 @@ global.copayApp.factory 'AuthenticateUser', (Records, ipCookie, Toast, $location
               ipCookie.remove('initialRequestPath')
               $location.path('/')
               deferred.reject()
-          if bucketId = parseInt($stateParams.bucketId)
-            bucket = Records.buckets.findOrFetchById(bucketId).then (bucket) ->
-              userIsMemberOfBucketGroup = _.find data.groups, (group) ->
-                group.id == bucket.groupId
-              if !userIsMemberOfBucketGroup
-                Toast.show('The bucket you were trying to access is private, please sign in to continue')
-                ipCookie.remove('initialRequestPath')
-                $location.path('/')
-                deferred.reject()
           deferred.resolve(CurrentUser())
         .catch (data) ->
           Toast.show('Please log in to continue')
