@@ -97,7 +97,7 @@
 
             <div layout="column" layout-align="center start" flex>
               <div class="group-page__purchase-amount">{{ purchase.amount | currency }}</div>
-              <div class="group-page__purchase-description">{{ purchase.description }}</div>
+              <div class="group-page__purchase-description">{{ purchase.description | characters:30:true }}</div>
             </div>
           </div>
         </md-list-item>
