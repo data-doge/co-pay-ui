@@ -1,19 +1,28 @@
 module.exports = 
+  resolve:
+    userValidated: ->
+      global.copayApp.userValidated
+    membershipsLoaded: ->
+      global.copayApp.membershipsLoaded    
   url: '/groups/:groupId'
   template: require('./group-page.html')
-  controller: ($scope, Records, $stateParams, $location, $window, ipCookie, AuthenticateUser, $auth, Toast, $mdSidenav) ->
+  controller: ($scope, Records, $stateParams, $location, $window, $auth, Toast, CurrentUser, $mdSidenav, UserCan) ->
 
-    AuthenticateUser().then (currentUser) ->
-      groupId = parseInt($stateParams.groupId)
-      ipCookie('currentGroupId', groupId)
-      $scope.currentUser = currentUser
-      # Records.memberships.fetchMyMemberships().then (data) ->
-      #   $scope.accessibleGroupsLoaded = true
-      #   $scope.accessibleGroups = data.groups
-      Records.groups.findOrFetchById(groupId).then (group) ->
-        $scope.group = group
-        Records.purchases.fetchByGroupId(groupId).then (data) ->
-        # $scope.currentMembership = group.membershipFor(currentUser)
+    console.log('group page loaded')
+    groupId = parseInt($stateParams.groupId)
+
+    Records.groups.findOrFetchById(groupId)
+      .then (group) ->
+        if UserCan.viewGroup(group)
+          console.log('user can view group')
+          $scope.currentUser = CurrentUser()
+          $scope.group = group
+          Records.purchases.fetchByGroupId(group.id)
+        else
+          console.log('user can not view group')
+      .catch ->
+        console.log("group not found")
+
 
     $scope.selectTab = (tabNum) ->
       $scope.tabSelected = tabNum
@@ -24,9 +33,7 @@ module.exports =
     $scope.signOut = ->
       $auth.signOut().then ->
          Toast.show("You've been signed out")
-         ipCookie.remove('currentGroupId')
-         ipCookie.remove('currentUserId')
-         ipCookie.remove('initialRequestPath')
+         global.copayApp.currentUserId = null
          $location.path('/')
 
     return
