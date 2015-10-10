@@ -2,7 +2,7 @@ null
 
 ### @ngInject ###
 global.copayApp.factory 'PurchaseModel', (BaseModel) ->
-  class GroupModel extends BaseModel
+  class PurchaseModel extends BaseModel
     @singular: 'purchase'
     @plural: 'purchases'
     @indices: ['groupId', 'userId']
@@ -11,3 +11,4 @@ global.copayApp.factory 'PurchaseModel', (BaseModel) ->
     relationships: ->
       @belongsTo 'group'
       @belongsTo 'user'
+      @hasMany 'payments'

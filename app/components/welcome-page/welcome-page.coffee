@@ -1,7 +1,7 @@
 module.exports = 
   url: '/'
   template: require('./welcome-page.html')
-  controller: ($scope, $auth, $location, Records, $rootScope, ipCookie) ->
+  controller: ($scope, $auth, $location, Records, $rootScope) ->
 
     $scope.login = (formData) ->
       $scope.formError = ""
@@ -10,10 +10,9 @@ module.exports =
         password: formData.password
 
     $scope.redirectToGroupPage = (user) ->
-      ipCookie('currentUserId', user.id)
       Records.memberships.fetchMyMemberships().then (data) ->
-        ipCookie('currentGroupId', data.groups[0].id)
-        $location.path("/groups/#{ipCookie('currentGroupId')}")
+        groupId = data.groups[0].id
+        $location.path("/groups/#{groupId}")
 
     $scope.$on 'auth:validation-success', (event, user) ->
       $scope.redirectToGroupPage(user) 
@@ -22,6 +21,7 @@ module.exports =
       $scope.redirectToGroupPage(user)
 
     $scope.$on 'auth:login-error', () ->
+      global.copayApp.currentUserId = null
       $scope.formError = "Invalid Credentials"
 
     return

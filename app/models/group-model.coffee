@@ -9,14 +9,16 @@ global.copayApp.factory 'GroupModel', (BaseModel) ->
 
     relationships: ->
       @hasMany 'memberships'
-      @hasMany 'purchases'
+      @hasMany 'purchases', sortBy: 'createdAt', sortDesc: true
 
-
-    # hasManyThrough doesn't yet exist quite yet
     members: ->
       _.map @memberships(), (membership) ->
-        membership.member()
+        membership.user()
 
-    membershipFor: (member) ->
+    membersExceptMe: (currentUser) ->
+      _.select @members(), (member) ->
+        member.id != currentUser.id
+
+    membershipFor: (user) ->
       _.first _.filter @memberships(), (membership) ->
-        membership.memberId == member.id
+        membership.userId == user.id

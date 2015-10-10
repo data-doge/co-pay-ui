@@ -7,6 +7,6 @@ global.copayApp.factory 'UserCan', (Toast, $location, $q, Records) ->
     viewGroup: (group) ->
       validMemberships = Records.memberships.find({
         groupId: group.id,
-        memberId: global.copayApp.currentUserId
+        userId: global.copayApp.currentUserId
       })
       validMemberships.length == 1

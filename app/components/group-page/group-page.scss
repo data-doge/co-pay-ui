@@ -102,15 +102,15 @@
   background: $cobudget-red;
 }
 
-// create-bucket-fab
+// create-purchase-fab
 
-.group-page__create-bucket-fab {
+.group-page__create-purchase-fab {
   position: absolute;
   right: 10px;
   bottom: -30px;
 }
 
-.group-page__create-bucket-fab-icon {
+.group-page__create-purchase-fab-icon {
   fill: white;  
 }
 
@@ -142,7 +142,22 @@
   font-size: 12px;
 }
 
-.group-page__purchase-amount {
+.group-page__purchase-amount-and-people-container {
   margin-bottom: 5px;
+}
+
+.group-page__purchase-amount {
   color: $cobudget-cyan;
+  margin-right: 10px;
+}
+
+.group-page__payer-avatar {
+  color: black;
+  background: white;
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+  border-radius: 50%;
+  font-size: 14px;
+  margin-right: 3px;
 }

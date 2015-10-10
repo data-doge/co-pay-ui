@@ -7,28 +7,31 @@ module.exports =
   url: '/groups/:groupId'
   template: require('./group-page.html')
   controller: ($scope, Records, $stateParams, $location, $window, $auth, Toast, CurrentUser, $mdSidenav, UserCan) ->
-
     console.log('group page loaded')
+    
     groupId = parseInt($stateParams.groupId)
-
     Records.groups.findOrFetchById(groupId)
       .then (group) ->
         if UserCan.viewGroup(group)
           console.log('user can view group')
           $scope.currentUser = CurrentUser()
           $scope.group = group
-          Records.purchases.fetchByGroupId(group.id)
+          Records.purchases.fetchByGroupId(group.id).then ->
+            _.each $scope.group.purchases(), (purchase) ->
+              Records.payments.fetchByPurchaseId(purchase.id)
         else
           console.log('user can not view group')
       .catch ->
         console.log("group not found")
-
 
     $scope.selectTab = (tabNum) ->
       $scope.tabSelected = tabNum
 
     $scope.openSidenav = ->
       $mdSidenav('left').open()
+
+    $scope.createPurchase = ->
+      $location.path("/purchases/new")
 
     $scope.signOut = ->
       $auth.signOut().then ->

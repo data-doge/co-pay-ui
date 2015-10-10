@@ -1,0 +1,85 @@
+// toolbar heading
+
+.create-purchase-page__toolbar {
+  background: $cobudget-gunmetal;
+  color: white;
+}
+
+.create-purchase-page__cancel-icon {
+  @include fontGrande;
+  fill: white;
+}
+
+.create-purchase-page__header-text {
+  @include fontLarge;
+}
+
+.create-purchase-page__done-button-text {
+  margin-right: 5px; 
+}
+
+// content
+
+.create-purchase-page__content {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+// help text
+
+.create-purchase-page__subheader-title {
+  color: $cobudget-blue;
+}
+
+.create-purchase-page__subheader-text {
+  @include fontMedium;
+}
+
+.create-purchase-page__subheader-text .md-subheader-inner {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+// form
+
+.create-purchase-page__form {
+  padding: 10px;
+}
+
+.create-purchase-page__target-optional-text {
+  color: $cobudget-blue;
+}
+
+// member select
+
+.create-purchase-page__member-select-header {
+  left: -2px;
+}
+
+.create-purchase-page__member-select-btn-container {
+  padding-left: 15px;
+}
+
+.create-purchase-page__member-select-btn-selected {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  border-radius: 50%;
+  background: black;
+  color: white;
+  margin-right: 7px;
+}
+
+.create-purchase-page__member-select-btn-unselected {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  border-radius: 50%;
+  background: white;
+  color: black;
+  margin-right: 7px;  
+}
+
+.create-purchase-page div:focus {
+    outline: none;
+ }

@@ -1,0 +1,71 @@
+<div class="create-purchase-page">
+  <md-toolbar class="md-whiteframe-z1 create-purchase-page__toolbar" layout-align="column">
+    <div class="md-toolbar-tools">
+      <md-button class="md-icon-button" ng-click="cancel()" aria-label="cancel">
+        <ng-md-icon icon="close"
+          class="create-purchase-page__cancel-icon" 
+          layout="column" 
+          layout-align="center center"
+        ></ng-md-icon>
+      </md-button>
+      <span class="create-purchase-page__header-text">New Purchase</span>
+      <span flex></span>
+      <md-button class="md-icon-button create-purchase-page__done-button" aria-label="done" ng-click="done()">
+        <div layout="column" layout-align="center center">
+          <span class="create-purchase-page__done-button-text">Done</span>
+        </div>
+      </md-button>
+    </div>
+  </md-toolbar>
+
+  <md-content class="create-purchase-page__content">
+    <div>
+      <md-subheader class="create-purchase-page__subheader-title">You're about to register a group purchase</md-subheader>
+    </div>
+    
+    <div>
+      <md-subheader class="create-purchase-page__subheader-text">Fill out the fields below, and select the people in your group for whom this purchase is relevant.</md-subheader>
+    </div>
+
+    <form name='purchaseForm' class="create-purchase-page__form">
+      <md-input-container>
+        <label>Description</label>
+        <input required name="description" type="text" ng-model="purchase.description">
+        <div ng-messages="purchaseForm.description.$error">
+          <div ng-message="required">This is required.</div>
+        </div>
+      </md-input-container>
+
+      <md-input-container>
+        <label>Details</label>
+        <textarea required name="details" ng-model="purchase.details"></textarea>
+        <div ng-messages="purchaseForm.details.$error">
+          <div ng-message="required">This is required.</div>
+        </div>
+      </md-input-container>
+
+      <md-input-container>
+        <label>Amount</label>
+        <input required name="amount" type="number" ng-model="purchase.amount">
+        <div ng-messages="purchaseForm.amount.$error">
+          <div ng-message="required">This is required.</div>
+        </div>
+      </md-input-container>
+    </form>
+
+    <div>
+      <md-subheader class="create-purchase-page__member-select-header">People</md-subheader>
+      <div class="create-purchase-page__member-select-btn-container" layout="row" layout-align="start center">
+        <div 
+          ng-repeat="member in group.membersExceptMe(currentUser)" 
+          ng-class="selectBtnClassForUser(member)" 
+          ng-click="toggleUserSelected(member)"
+          layout="column" layout-align="center center">
+          <div>{{ member.name[0] | uppercase }}</div>
+        </div>
+      </div>
+    </div>
+
+
+  </md-content>
+</div>

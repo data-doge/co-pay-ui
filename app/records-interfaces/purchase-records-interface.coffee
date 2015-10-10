@@ -12,3 +12,14 @@ global.copayApp.factory 'PurchaseRecordsInterface', (config, BaseRecordsInterfac
       @fetch
         params:
           group_id: groupId
+
+    saveWithRelevantUsers: (purchase, users) ->
+      userIds = _.map users, (user) ->
+        user.id
+      @remote.create 
+        purchase: 
+          description: purchase.description
+          details: purchase.details
+          amount: purchase.amount
+          group_id: purchase.groupId
+        user_ids: userIds
