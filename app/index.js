@@ -15,6 +15,7 @@ require('angular-messages')
 require('ng-focus-if')
 require('angular-upload')
 require('angular-material-icons')
+require('angular-truncate-2')
 
 if (process.env.NODE_ENV != 'production') {
   global.localStorage.debug = "*"
@@ -29,7 +30,8 @@ global.copayApp = angular.module('copay', [
   'ipCookie',
   'focus-if',
   'lr.upload',
-  'ngMdIcons'
+  'ngMdIcons',
+  'truncate'
 ])
 .constant('config', require('app/configs/app'))
 
@@ -44,3 +46,5 @@ concatenify('./records-interfaces/*.{js,coffee}')
 concatenify('./models/*.{js,coffee}')
 concatenify('./filters/*.{js,coffee}')
 concatenify('./services/*.{js,coffee}')
+
+require('app/boot.coffee')
